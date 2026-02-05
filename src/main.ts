@@ -17,7 +17,9 @@ async function bootstrap() {
 
   app.setGlobalPrefix('API-STYLEMEET');
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3000, () =>
+    console.log(`SERVER RUNNING ON PORT: ${process.env.PORT ?? 3000}`),
+  );
 }
 
 bootstrap();
