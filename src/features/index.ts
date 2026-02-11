@@ -1,0 +1,10 @@
+export { AuthModule } from './auth/auth.module';
+export { UsersModule } from './users/users.module';
+export { RolesModule } from './roles/roles.module';
+export { ClientsModule } from './clients/clients.module';
+export { ConfigsModule } from './configs/configs.module';
+export { PaymentsModule } from './payments/payments.module';
+export { CompanysModule } from './companys/companys.module';
+export { BranchesModule } from './branches/branches.module';
+export { AppointmentsModule } from './appointments/appointments.module';
+export { NotificationsModule } from './notifications/notifications.module';
