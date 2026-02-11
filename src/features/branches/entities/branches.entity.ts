@@ -1,8 +1,9 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 import { AccountType } from "../enums/account-type.enum";
 
 import { Companys } from "src/features/companys/entities/companys.entity";
+import { Services } from "src/features/services/entities/services.entity";
 
 @Entity('Branches')
 export class Branches {
@@ -28,4 +29,7 @@ export class Branches {
   @ManyToOne(() => Companys, company => company.branches, { eager: true, onDelete: "CASCADE" })
   @JoinColumn({ name: 'id_company' })
   company: Companys;
+
+  @OneToMany(() => Services, services => services.branch, { eager: true, onDelete: 'CASCADE' })
+  services: Services[];
 }
