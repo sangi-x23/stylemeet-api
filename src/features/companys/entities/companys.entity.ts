@@ -1,6 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 import { Branches } from "src/features/branches/entities/branches.entity";
+import { CompanysRolesPermissions } from "src/features/roles/entities/companys_roles_permissions.entity";
 
 @Entity('Companys')
 export class Companys {
@@ -16,4 +17,10 @@ export class Companys {
   // Relations
   @OneToMany(() => Branches, branches => branches.company)
   branches: Branches[];
+
+  @OneToMany(() => CompanysRolesPermissions, companysRolesPermissions => companysRolesPermissions.company, {
+    cascade: true,
+    onDelete: 'CASCADE'
+  })
+  companysrolespermissions: CompanysRolesPermissions[];
 }
