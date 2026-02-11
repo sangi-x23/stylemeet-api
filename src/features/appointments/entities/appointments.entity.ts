@@ -1,8 +1,9 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 import { Users } from "src/features/users/entities/users.entity";
 import { Clients } from "src/features/clients/entities/clients.entity";
 import { Services } from "src/features/services/entities/services.entity";
+import { Payments } from "src/features/payments/entities/payments.entity";
 
 @Entity('Appointments')
 export class Appointments {
@@ -27,4 +28,7 @@ export class Appointments {
   @ManyToOne(() => Services, service => service.appointments, { eager: true })
   @JoinColumn({ name: 'id_service' })
   service: Services;
+
+  @OneToOne(() => Payments, payment => payment.appointment, { eager: true, onDelete: 'CASCADE' })
+  payment: Payments;
 }
