@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 import { Roles } from "src/features/roles/entities/roles.entity";
+import { Appointments } from "src/features/appointments/entities/appointments.entity";
 
 @Entity('Users')
 export class Users {
@@ -26,4 +27,7 @@ export class Users {
   @ManyToOne(() => Roles, rol => rol.users, { eager: true })
   @JoinColumn({ name: 'id_rol' })
   rol: Roles;
+
+  @OneToMany(() => Appointments, appointments => appointments.user, { eager: true, onDelete: 'CASCADE' })
+  appointments: Appointments[];
 }
