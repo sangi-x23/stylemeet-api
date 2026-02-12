@@ -16,7 +16,7 @@ export class Payments {
   voucher: string;
 
   //Relations
-  @OneToOne(() => Appointments, appointment => appointment.payment, { eager: true })
+  @OneToOne(() => Appointments, appointment => appointment.payment)
   @JoinColumn({ name: 'id_appointment' })
   appointment: Appointments;
 }

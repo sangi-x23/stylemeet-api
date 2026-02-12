@@ -6,5 +6,6 @@ export { ConfigsModule } from './configs/configs.module';
 export { PaymentsModule } from './payments/payments.module';
 export { CompanysModule } from './companys/companys.module';
 export { BranchesModule } from './branches/branches.module';
+export { ServicesModule } from './services/services.module';
 export { AppointmentsModule } from './appointments/appointments.module';
 export { NotificationsModule } from './notifications/notifications.module';

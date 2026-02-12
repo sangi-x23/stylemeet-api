@@ -26,7 +26,7 @@ export class Branches {
   account_qr: string;
 
   // Relations
-  @ManyToOne(() => Companys, company => company.branches, { eager: true, onDelete: "CASCADE" })
+  @ManyToOne(() => Companys, company => company.branches)
   @JoinColumn({ name: 'id_company' })
   company: Companys;
 

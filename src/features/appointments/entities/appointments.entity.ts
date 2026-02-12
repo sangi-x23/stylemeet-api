@@ -17,15 +17,15 @@ export class Appointments {
   end_time: Date;
 
   //Relations
-  @ManyToOne(() => Users, user => user.appointments, { eager: true })
+  @ManyToOne(() => Users, user => user.appointments)
   @JoinColumn({ name: 'id_user' })
   user: Users;
 
-  @ManyToOne(() => Clients, client => client.appointments, { eager: true })
+  @ManyToOne(() => Clients, client => client.appointments)
   @JoinColumn({ name: 'id_client' })
   client: Clients;
 
-  @ManyToOne(() => Services, service => service.appointments, { eager: true })
+  @ManyToOne(() => Services, service => service.appointments)
   @JoinColumn({ name: 'id_service' })
   service: Services;
 
