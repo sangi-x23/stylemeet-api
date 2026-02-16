@@ -1,6 +1,7 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 import { Clients } from "src/features/clients/entities/clients.entity";
+import { Configs } from "src/features/configs/entities/configs.entity";
 import { Branches } from "src/features/branches/entities/branches.entity";
 import { CompanysRolesPermissions } from "src/features/roles/entities/companys_roles_permissions.entity";
 
@@ -27,4 +28,7 @@ export class Companys {
     onDelete: 'CASCADE'
   })
   companysrolespermissions: CompanysRolesPermissions[];
+
+  @OneToOne(() => Configs, config => config.company, { eager: true, onDelete: 'CASCADE' })
+  config: Configs;
 }
