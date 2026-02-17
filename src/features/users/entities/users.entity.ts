@@ -22,7 +22,7 @@ export class Users {
   @Column({ nullable: true })
   password: string;
 
-  @Column({ default: true })
+  @Column({ default: false })
   state: boolean;
 
   //Relations

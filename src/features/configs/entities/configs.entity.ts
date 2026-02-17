@@ -10,7 +10,7 @@ export class Configs {
   @Column()
   email_company: string;
 
-  @Column()
+  @Column({ nullable: true })
   logo_company: string;
 
   //Relations

@@ -51,6 +51,7 @@ export class UsersService {
       await queryRunner.commitTransaction();
 
       return successHandler('User was created successfully');
+
     } catch (err) {
       await queryRunner.rollbackTransaction();
 
