@@ -25,6 +25,9 @@ export class Users {
   @Column({ default: false })
   state: boolean;
 
+  @Column({ type: "timestamp", nullable: false, default: () => "CURRENT_TIMESTAMP" })
+  created_at: Date;
+
   //Relations
   @ManyToOne(() => Roles, rol => rol.users, { eager: true })
   @JoinColumn({ name: 'id_rol' })
