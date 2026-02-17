@@ -7,6 +7,7 @@ import { Users } from './entities/users.entity';
 import { RegisterUserDto } from './dtos/register-user.dto';
 
 import { errorHandler } from 'src/global/handlers/error.handler';
+import { successHandler } from 'src/global/handlers/success.handler';
 
 @Injectable()
 export class UsersService {
@@ -49,7 +50,7 @@ export class UsersService {
 
       await queryRunner.commitTransaction();
 
-      return user;
+      return successHandler('User was created successfully');
     } catch (err) {
       await queryRunner.rollbackTransaction();
 
