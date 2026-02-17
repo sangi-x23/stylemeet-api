@@ -14,9 +14,6 @@ export class PermissionGuard implements CanActivate {
   constructor (
     private readonly reflector: Reflector,
 
-    @InjectRepository(Permissions)
-    private readonly permissionsRepo: Repository<Permissions>,
-
     @InjectRepository(CompanysRolesPermissions)
     private readonly companysRolePermRepo: Repository<CompanysRolesPermissions>,
   ) {}

@@ -2,6 +2,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColum
 
 import { AccountType } from "../enums/account-type.enum";
 
+import { Users } from "src/features/users/entities/users.entity";
 import { Companys } from "src/features/companys/entities/companys.entity";
 import { Services } from "src/features/services/entities/services.entity";
 
@@ -29,6 +30,9 @@ export class Branches {
   @ManyToOne(() => Companys, company => company.branches)
   @JoinColumn({ name: 'id_company' })
   company: Companys;
+
+  @OneToMany(() => Users, users => users.branch)
+  users: Users[];
 
   @OneToMany(() => Services, services => services.branch, { eager: true, onDelete: 'CASCADE' })
   services: Services[];

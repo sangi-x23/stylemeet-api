@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
+import { Users } from "src/features/users/entities/users.entity";
 import { Clients } from "src/features/clients/entities/clients.entity";
 import { Configs } from "src/features/configs/entities/configs.entity";
 import { Branches } from "src/features/branches/entities/branches.entity";
@@ -17,6 +18,9 @@ export class Companys {
   created_at: Date;
 
   // Relations
+  @OneToMany(() => Users, users => users.company, { onDelete: 'CASCADE' })
+  users: Users[];
+
   @OneToMany(() => Branches, branches => branches.company, { eager: true, onDelete: 'CASCADE' })
   branches: Branches[];
 
