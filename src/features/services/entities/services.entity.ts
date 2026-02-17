@@ -22,6 +22,6 @@ export class Services {
   @JoinColumn({ name: 'id_branch' })
   branch: Branches;
 
-  @OneToMany(() => Appointments, appointments => appointments.user, { eager: true, onDelete: 'CASCADE' })
+  @OneToMany(() => Appointments, appointments => appointments.service, { eager: true, onDelete: 'CASCADE' })
   appointments: Appointments[];
 }
