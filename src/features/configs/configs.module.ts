@@ -9,5 +9,6 @@ import { ConfigsController } from './configs.controller';
   imports: [TypeOrmModule.forFeature([Configs])],
   controllers: [ConfigsController],
   providers: [ConfigsService],
+  exports: [ConfigsService]
 })
 export class ConfigsModule {}
