@@ -2,7 +2,7 @@ import { env } from '../env/env';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const dbConfig: TypeOrmModuleOptions = {
-  type: 'mariadb',
+  type: 'postgres',
   host: env.DB_HOST,
   port: env.DB_PORT,
   username: env.DB_USER,
