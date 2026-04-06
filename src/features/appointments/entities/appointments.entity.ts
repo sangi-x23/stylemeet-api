@@ -10,10 +10,10 @@ export class Appointments {
   @PrimaryGeneratedColumn()
   id_appointments: number;
 
-  @Column({ type: 'datetime', nullable: false })
+  @Column({ type: 'timestamp', nullable: false })
   start_time: Date;
 
-  @Column({ type: 'datetime', nullable: false })
+  @Column({ type: 'timestamp', nullable: false })
   end_time: Date;
 
   //Relations
