@@ -6,7 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Configs } from './entities/configs.entity';
 
 import { errorHandler } from 'src/global/handlers/error.handler';
-import { successHandler } from 'src/global/handlers/success.handler';
+import { successHandler, type SuccessResponse } from 'src/global/handlers/success.handler';
 
 @Injectable()
 export class ConfigsService {
@@ -15,7 +15,7 @@ export class ConfigsService {
     private readonly configsRepo: Repository<Configs>,
   ) {}
 
-  async findByCompany(id_company: number): Promise<any> {
+  async findByCompany(id_company: number): Promise<SuccessResponse<Configs>> {
     try {
       const config = await this.configsRepo
         .createQueryBuilder('config')
@@ -24,9 +24,9 @@ export class ConfigsService {
 
       if (!config) throw new NotFoundException(`Config for company ${id_company} not found`);
 
-      return successHandler('Config founded', config);
+      return successHandler<Configs>('Config founded', config);
     } catch (err) {
-      errorHandler('findByCompany - Configs', err);
+      return errorHandler('findByCompany - Configs', err);
     }
   }
 }
